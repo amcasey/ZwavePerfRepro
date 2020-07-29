@@ -1,0 +1,1 @@
+This is a de facto fork of https://github.com/AlCalzone/node-zwave-js.  Parts have been removed to make it easier to study the TypeScript compiler and language service performance.
