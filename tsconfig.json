@@ -8,5 +8,6 @@
         "module": "CommonJS",
         "moduleResolution": "node",
         "noEmit": true,
+        "noErrorTruncation": true,
     }
 }
