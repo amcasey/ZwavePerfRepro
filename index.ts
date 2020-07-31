@@ -1,4 +1,4 @@
-import { AssignAction, TransitionConfig } from "xstate";
+import { ActionObject, AssignAction, EventObject } from "xstate";
 
 interface DummyContext {
 }
@@ -11,8 +11,9 @@ interface Event2 {
     type: "evt2";
 }
 
-declare const myAction: AssignAction<DummyContext, Event1>
+type Action<TContext, TEvent extends EventObject> =
+    | ActionObject<TContext, TEvent>
+    | AssignAction<TContext, TEvent>; // NB: extends ActionObject<TContext, TEvent>
 
-const _on: TransitionConfig<DummyContext, Event1 | Event2> = {
-    actions: [myAction],
-};
+declare const action1: AssignAction<DummyContext, Event1>;
+const action2: Action<DummyContext, Event1 | Event2> = action1;
